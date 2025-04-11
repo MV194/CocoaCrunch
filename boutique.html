@@ -45,7 +45,7 @@
     </div>
     <div class="flex lg:hidden">
       <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-brown-700">
-        <span class="sr-only">Open main menu</span>
+        <span class="sr-only">Ouvrir le menu principal</span>
         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
@@ -57,50 +57,107 @@
       <a href="nous.html" class="text-sm -mx-3 block rounded-lg px-3 py-2 font-semibold text-brown-700 hover:bg-yellow-300">À propos de nous</a>
       <a href="contact.html" class="text-sm -mx-3 block rounded-lg px-3 py-2 font-semibold text-brown-700 hover:bg-yellow-300">Contact</a>
     </div>
-    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-      <a href="#" class="text-sm -mx-3 block rounded-lg px-3 py-2 font-semibold text-brown-700 hover:bg-yellow-300">Log in <span aria-hidden="true">&rarr;</span></a>
-    </div>
   </nav>
+
+  <!-- Mobile menu -->
+  <div class="lg:hidden hidden" role="dialog" aria-modal="true" id="mobileMenu">
+    <div class="fixed inset-0 z-40 bg-black/50"></div>
+    <div class="fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-yellow-50 p-6">
+      <div class="flex items-center justify-between">
+        <a href="#" class="-m-1.5 p-1.5">
+          <img class="h-8 w-auto" src="Google Web Designer/chocolate-bar.png" alt="CocoaCrunch Logo">
+        </a>
+        <button type="button" id="closeMenuButton" class="-m-2.5 rounded-md p-2.5 text-brown-700">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="mt-6 flow-root">
+        <div class="-my-6 divide-y divide-brown-500/10">
+          <div class="space-y-2 py-6">
+            <a href="boutique.html" class="text-sm -mx-3 block rounded-lg px-3 py-2 font-semibold text-brown-700 hover:bg-yellow-300">Produits</a>
+            <a href="ingredients.html" class="text-sm -mx-3 block rounded-lg px-3 py-2 font-semibold text-brown-700 hover:bg-yellow-300">Ingrédients</a>
+            <a href="nous.html" class="text-sm -mx-3 block rounded-lg px-3 py-2 font-semibold text-brown-700 hover:bg-yellow-300">À propos de nous</a>
+            <a href="contact.html" class="text-sm -mx-3 block rounded-lg px-3 py-2 font-semibold text-brown-700 hover:bg-yellow-300">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
 
 <main class="relative min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center p-4 lg:p-8">
   <div class="w-full max-w-4xl bg-yellow-100/75 backdrop-blur-sm rounded-lg p-6 space-y-6">
     <div class="p-4 bg-yellow-300 rounded-lg shadow-lg hover:bg-yellow-300 transition duration-300 text-center mb-4">
-        <h1 class="text-3xl sm:text-4xl font-bold text-brown-700 text-center animate-bounce">Welcome to CocoaCrunch!</h1>
-      <p class="text-lg text-gray-700">Indulge in our delicious CocoaCrunch varieties.</p>
+        <h1 class="text-3xl sm:text-4xl font-bold text-brown-700 text-center animate-bounce">Bienvenue chez CocoaCrunch!</h1>
+      <p class="text-lg text-gray-700">Laissez-vous tenter par nos délicieuses variétés CocoaCrunch.</p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-6xl">
       <!-- Milk CocoaCrunch -->
       <a id="white" class="text-background p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex flex-col justify-between text-white bg-opacity-75 w-full">
         <div class="text-background p-4 bg-yellow-300 rounded-lg shadow-lg hover:bg-yellow-300 transition duration-300 text-center mb-4">
-          <h2 class="text-colour text-2xl font-bold">Milk <br> CocoaCrunch</h2>
-          <p class="text-colour font-bold">Smooth and creamy milk CocoaCrunch.</p>
+          <h2 class="text-colour text-2xl font-bold">CocoaCrunch au Lait</h2>
+          <p class="text-colour font-bold">CocoaCrunch au lait onctueux et crémeux.</p>
         </div>
-        <button onclick="window.open('https://www.google.com', '_blank'); return false;" class="text-background hover:bg-yellow-200 transition duration-300 mt-4 text-white order-button py-2 px-4 rounded"><strong>Order Now</strong></button>
+        <div class="flex items-center justify-center mb-4">
+            <button onclick="decreaseQuantity('milk')" class="text-background font-bold hover:bg-yellow-200 transition duration-300 text-white order-button py-1 px-2 rounded">-</button>
+            <input type="number" id="milkQuantity" value="1" min="1" class="mx-2 w-12 text-center bg-white text-black border border-gray-300 rounded" onchange="updatePrice('milk')" />
+            <button onclick="increaseQuantity('milk')" class="text-background font-bold hover:bg-yellow-200 transition duration-300 text-white order-button py-1 px-2 rounded">+</button>
+        </div>
+        <div class="text-background p-2 bg-yellow-300 rounded-lg shadow-lg hover:bg-yellow-300 transition duration-300 text-center mb-4">
+            <div id="milkPrice" class="text-colour font-bold text-lg">$1.62</div>
+        </div>
+        <button onclick="placeOrder('CocoaCrunch au Lait', document.getElementById('milkQuantity').value)" class="text-background font-bold hover:bg-yellow-200 transition duration-300 mt-4 text-white order-button py-2 px-4 rounded">
+            <strong>Commandez maintenant</strong>
+        </button>
       </a>
       
       <!-- Dark CocoaCrunch -->
       <a id="white" class="text-background p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex flex-col justify-between text-white bg-opacity-75 w-full">
         <div class="text-background p-4 bg-yellow-300 rounded-lg shadow-lg hover:bg-yellow-300 transition duration-300 text-center mb-4">
-          <h2 class="text-colour text-2xl font-bold">Dark CocoaCrunch</h2>
-          <p class="text-colour font-bold">Rich and intense dark CocoaCrunch.</p>
+          <h2 class="text-colour text-2xl font-bold">CocoaCrunch <br> Noir</h2>
+          <p class="text-colour font-bold">CocoaCrunch Noir riche, intense et sombre.</p>
         </div>
-        <button onclick="window.open('https://www.google.com', '_blank'); return false;" class="text-background hover:bg-yellow-200 transition duration-300 mt-4 text-white order-button py-2 px-4 rounded"><strong>Order Now</strong></button>
+        <div class="flex items-center justify-center mb-4">
+            <button onclick="decreaseQuantity('dark')" class="text-background font-bold hover:bg-yellow-200 transition duration-300 text-white order-button py-1 px-2 rounded">-</button>
+            <input type="number" id="darkQuantity" value="1" min="1" class="mx-2 w-12 text-center bg-white text-black border border-gray-300 rounded" onchange="updatePrice('dark')" />
+            <button onclick="increaseQuantity('dark')" class="text-background font-bold hover:bg-yellow-200 transition duration-300 text-white order-button py-1 px-2 rounded">+</button>
+        </div>
+        <div class="text-background p-2 bg-yellow-300 rounded-lg shadow-lg hover:bg-yellow-300 transition duration-300 text-center mb-4">
+            <div id="darkPrice" class="text-colour font-bold text-lg">$1.99</div>
+        </div>
+        <button onclick="placeOrder('CocoaCrunch Noir', document.getElementById('darkQuantity').value)" class="text-background font-bold hover:bg-yellow-200 transition duration-300 mt-4 text-white order-button py-2 px-4 rounded">
+            <strong>Commandez maintenant</strong>
+        </button>
       </a>
 
       <!-- White CocoaCrunch -->
       <a id="white" class="text-background p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex flex-col justify-between text-white bg-opacity-75 w-full">
         <div class="text-background p-4 bg-yellow-300 rounded-lg shadow-lg hover:bg-yellow-300 transition duration-300 text-center mb-4">
-          <h2 class="text-colour text-2xl font-bold">White CocoaCrunch</h2>
-          <p class="text-colour font-bold">Sweet and creamy white CocoaCrunch.</p>
+          <h2 class="text-colour text-2xl font-bold">CocoaCrunch Blanc</h2>
+          <p class="text-colour font-bold">CocoaCrunch Blanc doux et crémeux.</p>
         </div>
-        <button onclick="window.open('https://www.google.com', '_blank'); return false;" class="text-background hover:bg-yellow-200 transition duration-300 mt-4 text-white order-button py-2 px-4 rounded"><strong>Order Now</strong></button>
+        <div class="flex items-center justify-center mb-4">
+            <button onclick="decreaseQuantity('white')" class="text-background font-bold hover:bg-yellow-200 transition duration-300 text-white order-button py-1 px-2 rounded">-</button>
+            <input type="number" id="whiteQuantity" value="1" min="1" class="mx-2 w-12 text-center bg-white text-black border border-gray-300 rounded" onchange="updatePrice('white')" />
+            <button onclick="increaseQuantity('white')" class="text-background font-bold hover:bg-yellow-200 transition duration-300 text-white order-button py-1 px-2 rounded">+</button>
+        </div>
+        <div class="text-background p-2 bg-yellow-300 rounded-lg shadow-lg hover:bg-yellow-300 transition duration-300 text-center mb-4">
+            <div id="whitePrice" class="text-colour font-bold text-lg">$2.62</div>
+        </div>
+        <button onclick="placeOrder('CocoaCrunch Blanc', document.getElementById('whiteQuantity').value)" class="text-background font-bold hover:bg-yellow-200 transition duration-300 mt-4 text-white order-button py-2 px-4 rounded">
+            <strong>Commandez maintenant</strong>
+        </button>
       </a>
+    </div>
 </main>
 
 <footer class="mt-6 bg-yellow-100/75 p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow block text-center">
-  <p class="text-gray-600">© 2025 CocoaCrunch. All rights reserved.</p>
+  <p class="text-gray-600">© 2025 CocoaCrunch. Tous droits réservés.</p>
 </footer>
+
+<script src="javascript.js"></script>
 
 </body>
 </html>

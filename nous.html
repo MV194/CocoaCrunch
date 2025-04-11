@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - CocoaCrunch</title>
+  <title>À Propos de Nous - CocoaCrunch</title>
   <link rel="icon" href="Google Web Designer/chocolate-bar.png" type="image/jpeg">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -30,7 +30,7 @@
     </div>
     <div class="flex lg:hidden">
       <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-brown-700">
-        <span class="sr-only">Open main menu</span>
+        <span class="sr-only">Ouvrir le menu principal</span>
         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
@@ -42,23 +42,47 @@
       <a href="nous.html" class="text-sm -mx-3 block rounded-lg px-3 py-2 font-semibold text-brown-700 hover:bg-yellow-300">À propos de nous</a>
       <a href="contact.html" class="text-sm -mx-3 block rounded-lg px-3 py-2 font-semibold text-brown-700 hover:bg-yellow-300">Contact</a>
     </div>
-    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-      <a href="#" class="text-sm -mx-3 block rounded-lg px-3 py-2 font-semibold text-brown-700 hover:bg-yellow-300">Log in <span aria-hidden="true">&rarr;</span></a>
-    </div>
   </nav>
+
+  <!-- Mobile menu -->
+  <div class="lg:hidden" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 z-40 bg-black/50"></div>
+    <div class="fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-yellow-50 p-6">
+      <div class="flex items-center justify-between">
+        <a href="#" class="-m-1.5 p-1.5">
+          <img class="h-8 w-auto" src="Google Web Designer/chocolate-bar.png" alt="CocoaCrunch Logo">
+        </a>
+        <button type="button" class="-m-2.5 rounded-md p-2.5 text-brown-700">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="mt-6 flow-root">
+        <div class="-my-6 divide-y divide-brown-500/10">
+          <div class="space-y-2 py-6">
+            <a href="boutique.html" class="text-sm -mx-3 block rounded-lg px-3 py-2 font-semibold text-brown-700 hover:bg-yellow-300">Produits</a>
+            <a href="ingredients.html" class="text-sm -mx-3 block rounded-lg px-3 py-2 font-semibold text-brown-700 hover:bg-yellow-300">Ingrédients</a>
+            <a href="nous.html" class="text-sm -mx-3 block rounded-lg px-3 py-2 font-semibold text-brown-700 hover:bg-yellow-300">À propos de nous</a>
+            <a href="contact.html" class="text-sm -mx-3 block rounded-lg px-3 py-2 font-semibold text-brown-700 hover:bg-yellow-300">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
 
 <main class="relative min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center p-4 lg:p-8">
   <div class="w-full max-w-4xl bg-yellow-100/75 backdrop-blur-sm rounded-lg p-6 space-y-6">
     <h1 class="text-3xl sm:text-4xl font-bold text-brown-700 text-center animate-bounce">About Us</h1>
     <p class="text-base sm:text-lg text-brown-700 text-center max-w-2xl mx-auto">
-      At CocoaCrunch, we are passionate about creating the perfect chocolate experience. Our bars are crafted with the finest ingredients, ensuring quality and taste in every bite. We believe in sustainable practices and source our cocoa from Rainforest Alliance certified farms.
+      Chez CocoaCrunch, nous avons à cœur de créer une expérience chocolatée parfaite. Nos tablettes sont élaborées avec les meilleurs ingrédients, garantissant qualité et saveur à chaque bouchée. Nous privilégions les pratiques durables et nous nous approvisionnons en cacao auprès de fermes certifiées Rainforest Alliance.
     </p>
     <p class="text-base sm:text-lg text-brown-700 text-center max-w-2xl mx-auto">
-      Our mission is to bring joy and satisfaction to chocolate lovers everywhere. Join us on this delicious journey and indulge in the delightful crunch of CocoaCrunch!
+      Notre mission est d'apporter joie et satisfaction aux amateurs de chocolat du monde entier. Rejoignez-nous pour ce délicieux voyage et savourez le croquant délicieux de CocoaCrunch !
     </p>
     <footer class="mt-6 bg-yellow-100/75 p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow block text-center">
-      <p class="text-gray-600">© 2025 CocoaCrunch. All rights reserved.</p>
+      <p class="text-gray-600">© 2025 CocoaCrunch. Tous droits réservés.</p>
     </footer>
   </div>
 </main>
